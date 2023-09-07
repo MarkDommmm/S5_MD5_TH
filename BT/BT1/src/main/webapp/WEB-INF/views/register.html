@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/register" method="post" th:object="${user}">
+    <label>FirstName</label>
+    <span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:error="*{firstName}">length from 5 to 45 characters</span><br>
+    <input type="text" name="firstName" th:field="*{firstName}"><br>
+    <label>LastName</label>
+    <span style="color: red" th:if="${#fields.hasErrors('lastName')}" th:error="*{lastName}">length from 5 to 45 characters</span><br>
+    <input type="text" name="lastName" th:field="*{lastName}"><br>
+    <label>Age</label>
+    <span style="color: red" th:if="${#fields.hasErrors('age')}" th:error="*{age}">Must be older than 18</span><br>
+    <input type="text" name="age" th:field="*{age}"><br>
+    <label>Email</label>
+    <span style="color: red" th:if="${#fields.hasErrors('email')}" th:error="*{email}">Invalid email</span><br>
+    <input type="text" name="email" th:field="*{email}"><br>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>
